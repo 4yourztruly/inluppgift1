@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        boolean inMenu = true;
+        boolean inMenu;
         boolean start = true;
         Account account = new Account("", "");
         Scanner scanner = new Scanner(System.in);
@@ -12,18 +12,19 @@ public class Main {
 
 
         while (start == true) {
+            inMenu = true;
             System.out.println();
             System.out.println("Welcome To Maze Bank! If you want to leave enter: exit");
             System.out.println();
             System.out.println("Do you have an account?");
             String answer1 = scanner.nextLine();
-            inMenu = true;
+
 
             if (answer1.equalsIgnoreCase("exit")) {
                 System.out.println("Exiting Maze Bank, Have a great day");
                 start = false;
-            }
-                else if (answer1.equalsIgnoreCase("no")) {
+                break;
+            } else if (answer1.equalsIgnoreCase("no")) {
                 scanner = new Scanner(System.in);
                 System.out.println("Please enter Username: ");
                 String username = scanner.nextLine();
@@ -32,11 +33,9 @@ public class Main {
                 System.out.println("Please enter Password: ");
                 String password = scanner.nextLine();
                 account.setPassword(password);
-
                 System.out.println("Your Password is: " + account.getPassword());
                 System.out.println();
             }
-
                 System.out.println("Login To Maze Bank");
                 System.out.println("Enter Username: ");
                 String username1 = scanner.nextLine();
@@ -82,11 +81,12 @@ public class Main {
                             System.out.println("Please enter deposit, withdraw or log out");
                         }
                     }
+
                 } else {
 
                     System.out.println("Username or Password was incorrect");
+                    //start = true;
                 }
-
 
             }
 
